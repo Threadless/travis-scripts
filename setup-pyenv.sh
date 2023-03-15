@@ -130,22 +130,4 @@ fi
 # the pyenv activates correctly.
 echo "**** Activating python $PYENV_VERSION and generating new virtualenv."
 eval "$(pyenv init -)"
-pyenv global "$PYENV_VERSION"
-
-# Make sure virtualenv is installed and up-to-date...
-pip install -U virtualenv
-
-# Then make and source a new virtualenv
-VIRTUAL_ENV="$HOME/ve-pyenv-$PYENV_VERSION"
-virtualenv -p "$(which python)" "$VIRTUAL_ENV"
-# shellcheck source=/dev/null
-source "$VIRTUAL_ENV/bin/activate"
-
-printf "One final verification that the virtualenv is working..."
-if verify_python "python"; then
-  printf "success!\n"
-else
-  printf "FAILED!\n"
-  output_debugging_info
-  return 1
-fi
+# Now we should be able to set up local pyenv versions for different locals
