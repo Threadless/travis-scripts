@@ -98,6 +98,10 @@ fi
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+#install pyenv-virtualenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git $PYENV_ROOT/plugins/pyenv-virtualenv
+exec "$SHELL"
+
 # Make sure the cache directory exists
 mkdir -p "$PYENV_CACHE_PATH"
 
