@@ -106,7 +106,7 @@ mkdir -p "$PYENV_CACHE_PATH"
 echo "**** Trying to find and use cached python $PYENV_VERSION."
 if ! use_cached_python; then
   echo "**** Installing python $PYENV_VERSION with pyenv now."
-  if pyenv install "$PYENV_VERSION"; then
+  if pyenv install --force "$PYENV_VERSION"; then
     if mv "$version_pyenv_path" "$PYENV_CACHE_PATH"; then
       echo "Python was successfully built and moved to cache."
       echo "**** Trying to find and use cached python $PYENV_VERSION."
